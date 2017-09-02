@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Ankush" content="">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <title>ARS Neighborhood Map</title>
+    <link href="https://bootswatch.com/spacelab/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="mySidenav" class="sidenav" >
+      <div class="container">
+        <h3 class="shead">Search for Hotels</h3>
+      </div>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <hr>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1" id="search-area">
+          <input class="form-control" placeholder="Search .." type="text" data-bind="value: searchBox, valueUpdate: 'keyup'">
+          <br>
+          <ul class="list-group" data-bind="foreach: search">
+            <li class="list-group-item" data-bind="text: title, click: $root.clickEventHandlerFunction"></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+      </div>
+    </div>
+    <main>
+      <div id="main">
+        <nav class="navbar navbar-inverse">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><i class="fa fa-globe" aria-hidden="true"></i>  ARS NeighborHood Map</a>
+            </div>
+          </div>
+        </nav>
+        <div class="row">
+          <div class="col-md-10">
+            <span class="ham" onclick="openNav()"><i class="fa fa-bars"></i></span>
+            <strong>Note: </strong>Please click on the menu to open the sidebar and click on cancel to close the sidebar.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 sform">
+            <input id="places-search" class="form-control" type="text" placeholder="Ex: Hotels in Mumbai">
+          </div>
+          <div class="col-md-6">
+            <button id="go-places" type="submit" class="btn btn-primary">Search for nearby places</button>
+          </div>
+        </div><br>
+        <div id="map"></div>
+        <div class="container">
+              <div data-bind="visible: mapUnavailable">
+                  <h3>Sorry Google Maps is unable to load right now.<br>Please check your connection and refresh the page, or try again later.</h3>
+              </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+    <script async defer
+      src=
+      "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyBJsIzDVD83bRkJUC7958Zyeo6oI-F35A4&v=3&callback=initMap"></script>
+  </body>
+</html>
